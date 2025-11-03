@@ -22,6 +22,7 @@ public class User extends BaseEntity {
     @Column(name = "tenant_id", nullable = false)
     private String tenantId;
 
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
