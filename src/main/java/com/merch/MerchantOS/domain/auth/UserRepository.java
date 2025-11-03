@@ -22,5 +22,5 @@ public interface UserRepository extends JpaRepository<User, String> {
     long countByTenantId(String tenantId);
 
     // Obtener solo managers o admins
-    List<User> findByTenantIdAndRole(String tenantId, User.Role role);
+    List<User> findByTenantIdAndRole(String tenantId, Role role);
 }

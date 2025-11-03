@@ -9,11 +9,11 @@ import java.util.Optional;
 @Repository
 public interface TenantRepository extends JpaRepository<Tenant, String> {
 
-    // 🔥 Buscar tienda por subdominio (Storefront usa esto)
+    // Buscar tienda por subdominio (Storefront usa esto)
     Optional<Tenant> findBySubdomain(String subdomain);
     boolean existsBySubdomain(String subdomain);
 
-    // 🔥 Ver qué tienda(s) tiene un usuario
+    // Ver qué tienda(s) tiene un usuario
     Optional<Tenant> findByOwnerId(String ownerId);  // Si 1 user = 1 tienda
     // List<Tenant> findByOwnerId(String ownerId);   // Si multi-tienda
 
@@ -21,5 +21,5 @@ public interface TenantRepository extends JpaRepository<Tenant, String> {
     boolean existsByName(String name);
 
     // Analytics
-    long countByPlan(Tenant.Plan plan);
+    long countByPlan(Plan plan);
 }
