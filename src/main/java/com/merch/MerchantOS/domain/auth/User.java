@@ -1,15 +1,13 @@
 package com.merch.MerchantOS.domain.auth;
 
-import com.merch.MerchantOS.infrastructure.shared.BaseEntity;
+import com.merch.MerchantOS.shared.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 @Builder
 public class User extends BaseEntity {
 
@@ -30,9 +28,5 @@ public class User extends BaseEntity {
     @Column(name = "is_active")
     private Boolean isActive = true;
 
-    public enum Role {
-        TENANT_ADMIN,
-        STORE_MANAGER,
-        CUSTOMER
-    }
+
 }

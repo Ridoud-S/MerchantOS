@@ -1,6 +1,6 @@
 package com.merch.MerchantOS.domain.tenants;
 
-import com.merch.MerchantOS.infrastructure.shared.BaseEntity;
+import com.merch.MerchantOS.shared.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,10 +22,5 @@ public class Tenant extends BaseEntity {
     @Column(name = "owner_id", nullable = false)
     private String ownerId;
 
-    public enum Plan {
-        FREE,
-        STARTER,
-        PRO,
-        ENTERPRISE
-    }
+
 }

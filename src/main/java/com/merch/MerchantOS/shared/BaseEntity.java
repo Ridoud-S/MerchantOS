@@ -1,4 +1,4 @@
-package com.merch.MerchantOS.infrastructure.shared;
+package com.merch.MerchantOS.shared;
 
 import jakarta.persistence.*;
 import lombok.Data;
