@@ -1,5 +1,6 @@
 package com.merch.MerchantOS.shared;
 
+
 public class TenantContext {
     private static final ThreadLocal<String>CURRENT_TENANT = new ThreadLocal<>();
 
@@ -13,7 +14,6 @@ public class TenantContext {
     public static String getCurrentTenant() {
         return CURRENT_TENANT.get();
     }
-    private Key
 
 
 }
