@@ -326,16 +326,4 @@ We welcome contributions from the community! Here's how you can help:
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
----
-
-<div align="center">
-
-**Built with ❤️ by the MerchantOS Team**
-
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/merchantos)
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/merchantos)
-
-</div>
 }
