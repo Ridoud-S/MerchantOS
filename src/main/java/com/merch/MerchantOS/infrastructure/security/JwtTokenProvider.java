@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.function.Function;
 
 @Component
 public class JwtTokenProvider {
@@ -38,33 +39,30 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    public String getEmailFromToken(String token) {
-        Claims claims = Jwts.parserBuilder()
-                .setSigningKey(getSigningKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-        return claims.getSubject();
-    }
-
-
     public String getTenantIdFromToken(String token) {
-        Claims claims= Jwts.parserBuilder()
-                .setSigningKey(getSigningKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-        return claims.get("tenantId", String.class);
+        return extractClaim(token, claims -> claims.get("tenantId", String.class));
     }
 
-    public String getUserIdFromToken(String token) {
-        Claims claims = Jwts.parserBuilder()
+    public String getEmailFromToken(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    // Método genérico para extraer claims (parsea solo una vez por llamada)
+    private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+        final Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
+    }
+
+    private Claims extractAllClaims(String token) {
+        return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())
                 .build()
-                .parseClaimsJws(token)
+                .parseClaimsJws(token) // Aquí valida la firma automáticamente
                 .getBody();
-        return claims.get("userId", String.class);
     }
+
+
+
 
     public boolean validateToken(String token) {
         try{
@@ -75,8 +73,5 @@ public class JwtTokenProvider {
 
         }
     }
-
-
-
 
 }

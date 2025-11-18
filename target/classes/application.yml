@@ -1,0 +1,38 @@
+
+
+spring:
+  application:
+    name: MerchantOS Backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/merchantos
+    username: postgres
+    password: Chopserrano23$
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+  sql:
+    init:
+      platform: postgres
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.merch.MerchantOS: DEBUG
+    org.hibernate.SQL: DEBUG
+
+jwt:
+  secret:
+    key: 1494075c51ef02093a8ef6d9fc3c30b80d0cf9690b52b43c9edfac8dc822a1439c5a493484cca653816e0594a7f7153377d3edbee92bb371f6aaf1696284b46558917f4a623af27fccee62d54e337b94ae8a909ed985d186395930d3edd58e48788b848c09e47e85542108096e1a37a855d538d1b330c67314414a8776f64b493f3eed656297cbe61a8a223d4e2563f8f01a9e3cc4350d64195efba0cdd6e0f78dcb859b16f62ff0ef7dedf0d7b341d3f3bb09668783994ddeb2bf3d7d0287cbdc256a2634c36a7b669f088ac6f62a88707022696748eaff0b98de55b8ba815514906e01f879bed0e86da6ac364976b6d4b7dd5ecf49db9d9ae20de0cc66443de8fdb881ce30f8c5de748bb98a658095969e3268051826b977c096c7cb5b4544aebd65ab6c04a70b95995a4a9faab1ebaf523d3eaa9270845135baacf09a7c35e55a05361ed8b9890daa1523f647effff61960008cfa6852846e09982e1d6b64d2a9571c1481a2119e7a9611e5f012da177333a2554ca44398262b3a4b7086ce2240598bcd43c4fd06045f7c65bfe2420b877f9030419a90b0453521c1eb391e85c7dadfcfecc3cb9abefbc6fd9f2ac8194e29e7b03e1b2258db0ffc9ceaac278baa28043ea06c129ca14e728abe88ce18ce3aa52b3a97cbb3c2c2878c972b4117f5afe50ce91aeae3e0cba6996c1f510f833446ea2813dff47c563da342434c
+  time:
+    expiration: 86400000

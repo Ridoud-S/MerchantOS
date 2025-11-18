@@ -1,5 +1,6 @@
 package com.merch.MerchantOS.domain.auth;
 
+import com.merch.MerchantOS.domain.AuthProvider;
 import com.merch.MerchantOS.shared.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,19 +15,16 @@ public class User extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
+    // Puede ser nulo si se registra con Google/OAuth2 en el futuro
+    @Column(nullable = true)
     private String password;
 
-    @Column(name = "tenant_id", nullable = false)
-    private String tenantId;
-
-
+    // Para saber si es LOCAL, GOOGLE, GITHUB, etc.
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;
+    private AuthProvider provider;
 
-    @Column(name = "is_active")
-    private Boolean isActive = true;
-
-
+    // ID del usuario en Google/Github (para cuando hagas OAuth2)
+    @Column(name = "provider_id")
+    private String providerId;
 }

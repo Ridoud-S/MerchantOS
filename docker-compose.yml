@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine  # Versión ligera y estable
+    container_name: merchantos-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=merchantos_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Para que no se borren los datos al apagar
+    networks:
+      - merchant-net
+
+volumes:
+  postgres_data:
+
+networks:
+  merchant-net:
+    driver: bridge

@@ -22,5 +22,8 @@ public class Tenant extends BaseEntity {
     @Column(name = "owner_id", nullable = false)
     private String ownerId;
 
+    @Column(nullable = false, unique = true)
+    private String subdomain;
+
 
 }
